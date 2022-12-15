@@ -18,7 +18,7 @@ async function renderVinyls() {
         <div class="desc">
             <span>${vinyl.artist}</span>
             <h5>${vinyl.title}</h5>
-            <h4>${vinyl.price}$</h4>
+            <h4>$${vinyl.price}</h4>
             <button class="cart" onClick='addtocart(${i++})'>Add To Cart</button>
         </div>
     </div>`;
@@ -51,8 +51,6 @@ renderVinyls();
 //   });
 // console.log(obj)
 
-
-
 var cart = []
 
 async function addtocart(a){
@@ -66,6 +64,7 @@ async function addtocart(a){
     // displaycart();
     
 }
+
 
 // function displaycart(a){
 //     let j = 0;
