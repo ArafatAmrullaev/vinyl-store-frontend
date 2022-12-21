@@ -33,25 +33,10 @@ async function renderVinyls() {
 renderVinyls();
 
 
-// async function getVinyl(id) {
-//     let url = 'http://127.0.0.1:8000/vinyls/'+id+'/';
-//     try {
-//         let res = await fetch(url);
-//         return await res.json();
-//     } catch (error) {
-//         console.log(error);
-//     }
-// }
+
+var cart = JSON.parse(localStorage.getItem("data")) || [];
 
 
-// const obj = fetch("http://127.0.0.1:8000/vinyls/"+1+"/")
-//   .then((response) => response.json())
-//   .then((data) => {
-//     console.log(data);
-//   });
-// console.log(obj)
-
-var cart = []
 
 async function addtocart(a){
     let obj = await fetch("http://127.0.0.1:8000/vinyls/"+a+"/")
@@ -60,35 +45,12 @@ async function addtocart(a){
         cart.push(data);
         // console.log(data);
     });
+    localStorage.setItem("data", JSON.stringify(cart))
+    alert('The Product Is Added To The Cart!')
     console.log(cart);
-    // displaycart();
     
 }
 
-
-// function displaycart(a){
-//     let j = 0;
-//     if(cart.length==0){
-//     document.getElementById('cartItem').innerHTML = "Your cart is empty";
-//     }
-//     else{
-//         document.getElementById("cartItem").innerHTML = cart.map((vinyls)=>
-//         {
-//             return(
-//                 `<div class="pro">
-//         <img src="${vinyls.pic}" alt="">
-//         <div class="desc">
-//             <span>${vinyls.artist}</span>
-//             <h5>${vinyls.title}</h5>
-//             <h4>${vinyls.price}$</h4>
-//         </div>
-//     </div>`
-
-//             )
-//         }
-//         )
-//     }
-// }
 
 
 //============================================
